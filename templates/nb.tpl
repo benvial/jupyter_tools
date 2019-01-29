@@ -85,7 +85,7 @@ div#notebook-container{
 <link rel="stylesheet" href="css/custom_nb.css">
 
 <!-- Mathjax config -->
-{% include "/static/templates/mathjax_config.tpl" %}
+{% include "/templates/mathjax_config.tpl" %}
 
 <script type="text/javascript" src="js/preload.js"></script>
 <script type="text/javascript" src="js/code_toggle.js"></script>

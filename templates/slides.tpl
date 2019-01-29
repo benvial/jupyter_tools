@@ -71,7 +71,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 <![endif]-->
 
 <!-- Mathjax config -->
-{% include "/static/templates/mathjax_config.tpl" %}
+{% include "/templates/mathjax_config.tpl" %}
 
 
 <!-- Get Font-awesome from cdn -->
