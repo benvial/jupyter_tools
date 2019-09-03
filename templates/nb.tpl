@@ -4,19 +4,20 @@
 {%- block header -%}
 <!DOCTYPE html>
 <html>
+
 <head>
-{%- block html_head -%}
-<meta charset="utf-8" />
-{% set nb_title = nb.metadata.get('title', '') or resources['metadata']['name'] %}
-<title>{{nb_title}}</title>
+  {%- block html_head -%}
+  <meta charset="utf-8" />
+  {% set nb_title = nb.metadata.get('title', '') or resources['metadata']['name'] %}
+  <title>{{nb_title}}</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-{% block ipywidgets %}
-{%- if "widgets" in nb.metadata -%}
-<script>
-(function() {
+  {% block ipywidgets %}
+  {%- if "widgets" in nb.metadata -%}
+  <script>
+    (function() {
   function addWidgetsRenderer() {
     var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
     var scriptElement = document.createElement('script');
@@ -39,86 +40,95 @@
   document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
 }());
 </script>
-{%- endif -%}
-{% endblock ipywidgets %}
+  {%- endif -%}
+  {% endblock ipywidgets %}
 
 
-<link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
-<style type="text/css">
-/* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
-}
+  <style type="text/css">
+    /* Overrides of notebook CSS for static HTML export */
+    body {
+      overflow: visible;
+      padding: 8px;
+    }
 
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}
+    div#notebook {
+      overflow: visible;
+      border-top: none;
+    }
 
-{%- if resources.global_content_filter.no_prompt-%}
-div#notebook-container{
-  padding: 6ex 12ex 8ex 12ex;
-}
-{%- endif -%}
+      {
+      %- if resources.global_content_filter.no_prompt-%
+    }
 
-@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  }
-  div.output_wrapper {
-    display: block;
-    page-break-inside: avoid;
-  }
-  div.output {
-    display: block;
-    page-break-inside: avoid;
-  }
-}
-</style>
+    div#notebook-container {
+      padding: 6ex 12ex 8ex 12ex;
+    }
 
-<link rel="shortcut icon" type="image/ico" href="img/favicon.ico" />
+      {
+      %- endif -%
+    }
 
-<link rel="stylesheet" href="css/nicenb.css">
-<link rel="stylesheet" href="css/custom_nb.css">
+    @media print {
+      div.cell {
+        display: block;
+        page-break-inside: avoid;
+      }
 
-<!-- Mathjax config -->
-{% include "/templates/mathjax_config.tpl" %}
+      div.output_wrapper {
+        display: block;
+        page-break-inside: avoid;
+      }
 
-<script type="text/javascript" src="js/preload.js"></script>
-<script type="text/javascript" src="js/code_toggle.js"></script>
+      div.output {
+        display: block;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+
+  <link rel="shortcut icon" type="image/ico" href="img/favicon.ico" />
+
+  <link rel="stylesheet" href="css/nicenb.css">
+  <link rel="stylesheet" href="css/custom_nb.css">
+
+  <!-- Mathjax config -->
+  {% include "/templates/mathjax_config.tpl" %}
+
+  <script type="text/javascript" src="js/preload.js"></script>
+  <script type="text/javascript" src="js/code_toggle.js"></script>
 
 
-{%- endblock html_head -%}
+  {%- endblock html_head -%}
 </head>
 {%- endblock header -%}
 
 {% block body %}
+
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
 
-<div id="preloader"></div>
-<div>
-<form action="javascript:code_toggle()">
-<input type="submit" id="toggleButton" value="Show Code"></form>
-</div>
+      <div id="preloader"></div>
+      <div>
+        <form action="javascript:code_toggle()">
+          <input type="submit" id="toggleButton" value="Show Code"></form>
+      </div>
 
-{{ super() }}
+      {{ super() }}
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1>References</h1>
-<bibliography-placeholder>
-</div>
-</div>
-</div>
+      <div class="cell border-box-sizing text_cell rendered">
+        <div class="prompt input_prompt">
+        </div>
+        <div class="inner_cell">
+          <div class="text_cell_render border-box-sizing rendered_html">
+            <h1>References</h1>
+            <bibliography-placeholder>
+          </div>
+        </div>
+      </div>
 
 
     </div>

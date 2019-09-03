@@ -340,7 +340,8 @@ div#notebook {
   background-color: #ffffff;
   min-height: 0px;
   box-shadow: none;
-  width: 980px;
+  width: 75%;
+  min-width: 920px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -354,7 +355,7 @@ div#ipython-main-app.container {
 }
 
 .container {
-  width: 66% !important;
+  /* width: 66% !important; */
   margin-right: auto;
   margin-left: auto;
 }
